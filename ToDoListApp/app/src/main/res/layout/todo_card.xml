@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <data class="TodoCardBinding">
+        <variable
+            name="toDo"
+            type="com.alexlopezmalvaez.todolistapp.data.model.ToDoModel" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/toDoCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        app:cardBackgroundColor="@{ toDo.completed ? @color/completed_color : @color/no_completed_color }"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="327dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_margin="10dp"
+                android:text="@{toDo.title}"
+                android:textSize="16dp" />
+
+            <CheckBox
+                android:id="@+id/cb_completed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:checked="@{toDo.completed}" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
